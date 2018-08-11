@@ -1,12 +1,11 @@
 body {
     background: #eee;
     text-align: center;
-    padding: 0 25px;
     font-family: arial, sans-serif;
 }
 
-#main, #chats {
-    width: 500px;
+#main,  {
+    /* width: 500px; */
     margin: auto;
     text-align: left;
     background: white;
@@ -14,16 +13,40 @@ body {
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
 }
-
+#chats{
+    float: none;
+    max-width: 600px;
+    height: 1000px;
+    margin: auto;
+    padding: 0px 60px 0px 60px;
+    background: white;
+    border: solid #ddd;
+}
 #main h1 {
     margin-top: 0;
-    font-size: 35px;
+    font-size: 55px;
     margin-bottom: 5px;
     padding: 5px;
+    font-family: 'Fredoka One', cursive;
 }
 
 #main h1 span {
-    font-style:italic;
+    font-style: italic;
+}
+
+#main div#rooms {
+    margin-top: 0;
+    font-size: 25px;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-family: 'Fredoka One', cursive;
+}
+
+select {
+    font-family: 'Fredoka One', cursive;
+    width: 40%;
+    height: 35px;
+    padding-bottom: 20px;
 }
 
 #main ul {
@@ -54,7 +77,7 @@ form {
 
 form input[type=text] {
     margin-right: 10px;
-    width: 70%;
+    width: 50%;
     font-size: 12px;
     padding: 5px;
 }
@@ -83,8 +106,14 @@ form input[type=text] {
     padding: 10px;
 }
 
-.friend {
-    color: #fff;
-    background-color: #0090da;
+#friends_header {
+    font-family: 'Fredoka One', cursive;
+    width: 20%;
+    height: 35px;
+    padding-bottom: 20px;
+    float: right;
+    position: relative;
 }
+#friends {
 
+}

@@ -8,6 +8,8 @@ var App = function(username, text, roomname) {
 };
 
 App.prototype.init = function() {
+  var messages = this.fetch();
+  this.renderMessage();
   $('.username').click(function() {
     app.handleUsernameClick();
   });
@@ -54,7 +56,7 @@ App.prototype.handleSubmit = function() {
 
 //});0
 var app = new App();
-var fetchedMsg = app.fetch();
+var messages = this.fetch();
 
 
 //ultiemately we want to display texts into body of the HTML
