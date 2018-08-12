@@ -1,7 +1,14 @@
 body {
     background: #eee;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: 'Fredoka One', cursive;
+}
+a {
+    font-weight: bold;
+}
+
+p {
+    text-align: left; 
 }
 
 #main,  {
@@ -27,7 +34,7 @@ body {
     font-size: 55px;
     margin-bottom: 5px;
     padding: 5px;
-    font-family: 'Fredoka One', cursive;
+    
 }
 
 #main h1 span {

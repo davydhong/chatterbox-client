@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
   <!-- dependencies -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="../lib/moment.js"></script>
   <script>
     // YOU DO NOT NEED TO EDIT THIS CODE
     if (!/(&|\?)username=/.test(window.location.search)) {
@@ -22,6 +24,15 @@
   <!-- your scripts -->
   <script src="env/config.js"></script>
   <script src="scripts/app.js"></script>
+  <script>
+    $( document ).ready(function() {
+        $('.submit').submit(app.handleSubmit);
+        $('.username').click(app.handleUsernameClick);
+        
+        
+    });
+
+  </script>
 </head>
 
 <body>
@@ -32,17 +43,25 @@
     <div id="rooms">
       Room:
       <select id="roomSelect">
-        <option>'default</option> 
+        <option>default</option> 
       </select>
     </div>
     <form action="#" id="send" method="post">
       <input type="text" name="message" id="message" />
       <input type="submit" name="submit" class="submit" />
     </form>
-    <div id="chats"></div>
+    <div id="chats">
+      <!--<span id='roomname'><>-->
+      <!--<p>sample message</p>-->
+    </div>
     <div id="friends_header">
       Friends
-      <ul id="friends"></ul>
+      <ul id="friends">
+        <!--<li>egg</li>
+                <li>egg</li>
+                        <li>egg</li>
+                                <li>egg</li>-->
+      </ul>
     </div>
   </div>
 
