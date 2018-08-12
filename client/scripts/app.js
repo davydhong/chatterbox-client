@@ -67,7 +67,7 @@ App.prototype.clearMessages = function () {
   $('#chats').children().remove();
 };
 App.prototype.renderMessage = function (data) {
-  $('#chats').append('<p class="message ' + data.roomname.split(" ").join("_") + '"><span class="username">' + data.username + '</span>: ' + data.text + '</p>');
+  $('#chats').append('<p class="message ' + data.roomname.split(" ").join("_") + '"><span class="username '+ data.username +'">' + data.username + '</span>: ' + data.text + '</p>');
   // $('#chats').append('<p class="message><a class="username">' + data.username + '</a>' + data.text + '</p>');
   //'<a class="roomname"> + data.roomname + '</a>'
   $('.username').off('click').on('click', app.handleUsernameClick);
@@ -85,7 +85,9 @@ App.prototype.renderRoom = function (data) {
 
 App.prototype.handleUsernameClick = function (event) {
   debugger;
+
   $('#friends').append('<li>' + $(this).text() + '</li>');
+  $(this).addClass('friended');
 };
 
 App.prototype.handleSubmit = function (event) {

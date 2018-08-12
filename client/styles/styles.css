@@ -116,8 +116,8 @@ form input[type=text] {
     position: relative;
     top: -1000px;
 }
-#friends {
-
+.friended {
+    font-weight: bold;
 }
 
 
