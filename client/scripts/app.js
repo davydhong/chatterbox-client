@@ -1,6 +1,6 @@
 // YOUR CODE HERE:
 // $(document).ready(function () {
-  // $(document).ready(function () {
+// $(document).ready(function () {
 var App = function (username, text, roomname) {
   this.username = username;
   this.text = text;
@@ -11,13 +11,7 @@ var App = function (username, text, roomname) {
 
 
 App.prototype.init = function () {
-  var messages = this.fetch();
-
-
-    $('#send .submit').submit(app.handleSubmit);
-    $('.username').click(app.handleUsernameClick);
-
-  // setInterval(app.init,3000);
+  var messages = app.fetch();
 };
 
 
@@ -28,7 +22,7 @@ App.prototype.send = function (message) {
     data: JSON.stringify(message),
     contentType: 'application/json',
     success: function (data) {
-      console.log("message sent");
+      // console.log("message sent");
       app.message.val('');
       app.fetch();
     }
@@ -65,37 +59,40 @@ App.prototype.fetch = function () {
       }
     }
   });
+
+
 };
 
 App.prototype.clearMessages = function () {
   $('#chats').children().remove();
 };
 App.prototype.renderMessage = function (data) {
-  $('#chats').append('<p class="message ' + data.roomname + '"><a class="username">' + data.username + '</a>: ' + data.text + '</p>');
+  $('#chats').append('<p class="message ' + data.roomname.split(" ").join("_") + '"><span class="username">' + data.username + '</span>: ' + data.text + '</p>');
   // $('#chats').append('<p class="message><a class="username">' + data.username + '</a>' + data.text + '</p>');
   //'<a class="roomname"> + data.roomname + '</a>'
-
+  $('.username').off('click').on('click', app.handleUsernameClick);
 };
+
 App.prototype.renderRoom = function (data) {
-
-  //   $('#roomSelect').append('<option class="room ' + data.roomname + '">' + data.roomname + '</option>');
-  // }
-  //   }
-
-  $('#roomSelect').append('<option class="room ' + data.roomname + '">' + data.roomname + '</option>');
-  // }
+  if ($('.room.' + data.roomname.split(" ").join("_")).length === 0) {
+    $('#roomSelect').append('<option class="room ' + data.roomname.split(" ").join("_") + '">' + data.roomname + '</option>');
+  }
+  $('#roomSelect').change(function () {
+    $('p').hide();
+    $('.' + $(this).val()).show();
+  });
 };
 
 App.prototype.handleUsernameClick = function (event) {
-  // this adds a friend
-
+  debugger;
+  $('#friends').append('<li>' + $(this).text() + '</li>');
 };
 
 App.prototype.handleSubmit = function (event) {
   var message = {
     username: window.location.search.split('?username=')[1],
-    text: $('input').val(),
-    roomname: $('#roomSelect').find(":selected").text()
+    text: $('input#message').val(),
+    roomname: $('input#room').val() || $('#roomSelect').find(":selected").text()
   };
   app.send(message);
 
@@ -104,8 +101,22 @@ App.prototype.handleSubmit = function (event) {
 
 var app = new App();
 app.init();
-// var ajaxdata = app.fetch();
-// console.log(ajaxdata)
+setInterval(app.init, 60000);
+
+$(document).ready(function () {
+  // (function () {
+  $('.submit').on('click', app.handleSubmit);
+
+  // });
+});
+
+
+// $(document).ready(function () {
+//   (function () {
+//     $('.submit').on('click', app.handleSubmit);
+//     $('#username').on('click', app.handleUsernameClick);
+//   });
+// });
 
 
 

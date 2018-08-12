@@ -24,15 +24,15 @@
   <!-- your scripts -->
   <script src="env/config.js"></script>
   <script src="scripts/app.js"></script>
-  <script>
+  <!--<script>
     $( document ).ready(function() {
-        $('.submit').submit(app.handleSubmit);
+        // $('.submit').submit(app.handleSubmit);
+        $('.submit').submit(console.log('eggg'));
         $('.username').click(app.handleUsernameClick);
-        
         
     });
 
-  </script>
+  </script>-->
 </head>
 
 <body>
@@ -43,11 +43,16 @@
     <div id="rooms">
       Room:
       <select id="roomSelect">
-        <option>default</option> 
       </select>
+      <form action="make_room" id="room" method="post">
+      Make Room:
+      <input type="text" name="message" id="room" placeholder="Fill out if you want to start channel"/>
+      <!--<input type="submit" name="submit" class="submit" />-->
+    </form>
     </div>
+    
     <form action="#" id="send" method="post">
-      <input type="text" name="message" id="message" />
+      <input type="text" name="message" id="message" placeholder="Enter Your Message"/>
       <input type="submit" name="submit" class="submit" />
     </form>
     <div id="chats">

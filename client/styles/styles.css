@@ -1,7 +1,7 @@
 body {
     background: #eee;
     text-align: center;
-    font-family: 'Fredoka One', cursive;
+    font-family: arial, sans-serif;
 }
 a {
     font-weight: bold;
@@ -9,6 +9,7 @@ a {
 
 p {
     text-align: left; 
+    display: none;
 }
 
 #main,  {
@@ -34,7 +35,7 @@ p {
     font-size: 55px;
     margin-bottom: 5px;
     padding: 5px;
-    
+    font-family: 'Fredoka One', cursive;
 }
 
 #main h1 span {
@@ -47,6 +48,7 @@ p {
     margin-bottom: 5px;
     padding: 5px;
     font-family: 'Fredoka One', cursive;
+    display: inline;
 }
 
 select {
@@ -103,15 +105,7 @@ form input[type=text] {
     background-color: #ddd;
 }
 
-.spinner {
-    float: right;
-    height: 46px;
-    margin-bottom: 5px;
-}
 
-.spinner img {
-    padding: 10px;
-}
 
 #friends_header {
     font-family: 'Fredoka One', cursive;
@@ -120,7 +114,24 @@ form input[type=text] {
     padding-bottom: 20px;
     float: right;
     position: relative;
+    top: -1000px;
 }
 #friends {
 
 }
+
+
+.username:hover{
+  color: rgb(255, 187, 210);
+}
+
+/*
+.spinner {
+    float: right;
+    height: 46px;
+    margin-bottom: 5px;
+}
+
+.spinner img {
+    padding: 10px;
+}'*/
